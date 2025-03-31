@@ -1,0 +1,23 @@
+int ledPin = 13;
+
+
+
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    String data = Serial.readString();
+    if (data == "1") {
+      digitalWrite(ledPin, HIGH);
+      Serial.println("LED ON");
+    } 
+    else if (data == "Hello") {
+      digitalWrite(ledPin, LOW);
+      Serial.println("LED OFF");
+    }
+  }
+}
